@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelScape Auth - Single Page Travel Website</title>
+  <meta name="description" content="Professional single-page travel and hospitality website with signup, signin, login system, and client-side validation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="TravelScape home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17c4.5-1.2 7.3-4.2 9-9 1.3 3 3.8 5.5 9 7-3.1.6-5.5 2.3-7 6-1.6-2.1-4.4-3.5-11-4Z"/>
+          </svg>
+        </span>
+        <span>TravelScape</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <div class="nav-links" id="navLinks">
+          <a href="#destinations">Destinations</a>
+          <a href="#packages">Packages</a>
+          <a href="#services">Services</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">☾</button>
+        <button class="btn btn-primary" type="button" data-open-auth="signup">Plan your trip</button>
+        <button class="menu-toggle" type="button" id="menuToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-card reveal">
+          <span class="eyebrow">Tourism & Hospitality</span>
+          <h1>Discover journeys worth remembering.</h1>
+          <p>TravelScape is a professional single-page travel website designed for destination discovery, curated packages, hospitality services, and secure account access. It includes signup, signin, and login forms with invalid input checks using JavaScript validation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#packages">Explore packages</a>
+            <a class="btn btn-secondary" href="#destinations">View destinations</a>
+            <button class="btn btn-secondary" type="button" data-open-auth="login">Login</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>48+</strong><span>Curated destinations</span></div>
+            <div class="stat"><strong>12k</strong><span>Happy travelers</span></div>
+            <div class="stat"><strong>4.9/5</strong><span>Guest rating</span></div>
+          </div>
+        </div>
+        <div class="hero-panel reveal" aria-label="Travel destination showcase">
+          <div class="floating-card">
+            <h3>Goa Escape</h3>
+            <p>4 days · Beach stay · Local guide · Sunset cruise included.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEARCH STRIP ===== -->
+    <section class="search-strip">
+      <div class="container">
+        <form class="search-card reveal" aria-label="Trip planning form">
+          <div class="field">
+            <label for="destination">Destination</label>
+            <select id="destination">
+              <option>Goa</option>
+              <option>Udaipur</option>
+              <option>Manali</option>
+              <option>Kerala</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="travel-date">Travel date</label>
+            <input id="travel-date" type="date" />
+          </div>
+          <div class="field">
+            <label for="guests">Guests</label>
+            <input id="guests" type="number" min="1" value="2" />
+          </div>
+          <div class="field">
+            <label for="budget">Budget</label>
+            <select id="budget">
+              <option>₹15,000 - ₹30,000</option>
+              <option>₹30,000 - ₹50,000</option>
+              <option>₹50,000+</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="button">Check availability</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== DESTINATIONS ===== -->
+    <section class="section" id="destinations">
+      <div class="container">
+        <span class="eyebrow">Featured places</span>
+        <h2 class="section-title reveal">Popular destinations for every travel mood.</h2>
+        <p class="section-copy reveal">This page combines visual travel discovery with practical sections, so it feels like a real product instead of a basic static page.</p>
+        <div class="destinations-grid">
+          <article class="card reveal">
+            <div class="card-media" style="background-image:url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="card-body">
+              <div class="meta-row"><span>Beach getaway</span><span class="rating">★ 4.8</span></div>
+              <h3>Goa</h3>
+              <p>Golden beaches, vibrant cafés, water sports, and premium stays for couples, friends, and weekend explorers.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media" style="background-image:url('https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="card-body">
+              <div class="meta-row"><span>Royal heritage</span><span class="rating">★ 4.7</span></div>
+              <h3>Udaipur</h3>
+              <p>Palaces, lakes, local art, and a romantic hospitality experience wrapped in Rajasthan's cultural richness.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media" style="background-image:url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="card-body">
+              <div class="meta-row"><span>Mountain retreat</span><span class="rating">★ 4.9</span></div>
+              <h3>Manali</h3>
+              <p>Snowy scenery, adventure trails, cozy resorts, and guided nature activities for a fresh mountain escape.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PACKAGES ===== -->
+    <section class="section" id="packages">
+      <div class="container">
+        <span class="eyebrow">Travel packages</span>
+        <h2 class="section-title reveal">Flexible plans with transport, stay, and guided experiences.</h2>
+        <div class="packages-grid">
+          <article class="card package-card reveal">
+            <span class="eyebrow">Starter</span>
+            <h3>Weekend Escape</h3>
+            <p class="price">₹18,999</p>
+            <ul class="package-list">
+              <li>3 days / 2 nights stay</li>
+              <li>Breakfast included</li>
+              <li>Airport or station pickup</li>
+              <li>Local sightseeing support</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact" style="margin-top:1.25rem;">Reserve now</a>
+          </article>
+          <article class="card package-card featured reveal">
+            <span class="eyebrow">Most booked</span>
+            <h3>Luxury Explorer</h3>
+            <p class="price">₹34,999</p>
+            <ul class="package-list">
+              <li>5 days / 4 nights premium stay</li>
+              <li>Private city or nature tour</li>
+              <li>Dinner cruise or cultural show</li>
+              <li>Dedicated travel coordinator</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact" style="margin-top:1.25rem;">Book premium</a>
+          </article>
+          <article class="card package-card reveal">
+            <span class="eyebrow">Family</span>
+            <h3>Group Adventure</h3>
+            <p class="price">₹27,499</p>
+            <ul class="package-list">
+              <li>4 days / 3 nights family rooms</li>
+              <li>Adventure activity tickets</li>
+              <li>Meal plan for all guests</li>
+              <li>Photo and support assistance</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact" style="margin-top:1.25rem;">View details</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="banner reveal">
+          <div>
+            <span class="eyebrow" style="color:#dfeff0;">Hospitality features</span>
+            <h2 class="section-title" style="margin-top:var(--space-3); color:var(--color-text-inverse);">Everything you need from planning to checkout.</h2>
+            <p>Travel websites work best when they combine destination inspiration, booking support, and trusted service guidance in one flow.</p>
+          </div>
+          <div>
+            <button class="btn btn-secondary" type="button" data-open-auth="signin" style="background:rgba(255,255,255,0.08); color:white; border-color:rgba(255,255,255,0.24);">Sign in now</button>
+          </div>
+        </div>
+        <div class="services-grid">
+          <article class="card service-card reveal">
+            <div class="service-icon">✈</div>
+            <h3>Travel booking</h3>
+            <p>Flight and transfer planning with smooth reservation support and schedule coordination.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="service-icon">🏨</div>
+            <h3>Hotel stays</h3>
+            <p>Comfort, luxury, and family accommodation options selected for convenience and location.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="service-icon">🧭</div>
+            <h3>Local guides</h3>
+            <p>Trusted sightseeing help, local culture insights, and curated day experiences.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="service-icon">☎</div>
+            <h3>24/7 support</h3>
+            <p>Quick assistance for bookings, updates, changes, and destination-related questions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <span class="eyebrow">Guest stories</span>
+        <h2 class="section-title reveal">Travel experiences that build trust.</h2>
+        <div class="testimonial-grid">
+          <article class="card testimonial reveal">
+            <p>"The layout was easy to use and the package information was crystal clear. Our Goa trip felt professionally managed from start to finish."</p>
+            <footer>Riya Patel · Ahmedabad</footer>
+          </article>
+          <article class="card testimonial reveal">
+            <p>"We booked a family trip to Udaipur and loved the stay recommendations, city guide support, and smooth transport planning."</p>
+            <footer>Karan Mehta · Surat</footer>
+          </article>
+          <article class="card testimonial reveal">
+            <p>"The login and signup system makes the site feel like a real travel product, not just a design sample."</p>
+            <footer>Neha Shah · Vadodara</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-title reveal">Answers before you book.</h2>
+        <div class="faq-list">
+          <article class="faq-item reveal active">
+            <button class="faq-question" type="button">Can I customize my tour package?<span>+</span></button>
+            <div class="faq-answer"><p>Yes. You can adjust travel dates, hotel category, activities, and group size according to your plan and budget.</p></div>
+          </article>
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">Do you provide transport and accommodation together?<span>+</span></button>
+            <div class="faq-answer"><p>Yes. Packages can include stay, local transfer, pickup support, and guided sightseeing in one combined plan.</p></div>
+          </article>
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">Is validation included in the auth forms?<span>+</span></button>
+            <div class="faq-answer"><p>Yes. The signup, signin, and login forms check empty fields, invalid email format, weak password rules, duplicate email, wrong password, and missing accounts.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title reveal">Plan your next journey with confidence.</h2>
+        <div class="contact-grid">
+          <aside class="contact-panel reveal" aria-label="Contact information">
+            <h3 style="font-size:var(--text-lg);">Travel support desk</h3>
+            <p style="margin-top:var(--space-3); color:var(--color-text-muted);">Get help with destination selection, package comparison, custom planning, and booking support.</p>
+            <ul class="contact-points">
+              <li><strong>Email:</strong> hello@travelscape.demo</li>
+              <li><strong>Phone:</strong> +91 98765 43210</li>
+              <li><strong>Hours:</strong> Mon - Sat, 9:00 AM to 8:00 PM</li>
+              <li><strong>Office:</strong> Tourism Hub, Ahmedabad, Gujarat</li>
+            </ul>
+          </aside>
+          <form class="contact-form reveal" aria-label="Trip enquiry form">
+            <div class="form-row">
+              <div><label class="sr-only" for="name">Full name</label><input id="name" type="text" placeholder="Full name" required></div>
+              <div><label class="sr-only" for="email">Email address</label><input id="email" type="email" placeholder="Email address" required></div>
+            </div>
+            <div class="form-row">
+              <div><label class="sr-only" for="phone">Phone</label><input id="phone" type="tel" placeholder="Phone number"></div>
+              <div><label class="sr-only" for="place">Preferred destination</label><input id="place" type="text" placeholder="Preferred destination"></div>
+            </div>
+            <div><label class="sr-only" for="message">Message</label><textarea id="message" placeholder="Tell us about your trip dates, budget, and travel style"></textarea></div>
+            <button class="btn btn-primary" type="submit">Send enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© 2026 TravelScape. Built as a professional IT workshop single-page travel website.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+        <a href="#home">Top</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <button type="button" data-open-auth="signin" style="background:none; border:0; color:inherit; font:inherit; cursor:pointer;">Sign in</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== AUTH MODAL ===== -->
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-backdrop" data-close-auth></div>
+    <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" type="button" id="authClose" aria-label="Close authentication form">×</button>
+      <div class="auth-tabs" role="tablist" aria-label="Authentication forms">
+        <button class="auth-tab active" type="button" data-auth-tab="signup">Sign up</button>
+        <button class="auth-tab" type="button" data-auth-tab="signin">Sign in</button>
+        <button class="auth-tab" type="button" data-auth-tab="login">Login</button>
+      </div>
+
+      <!-- Sign Up Panel -->
+      <div class="auth-panel active" data-auth-panel="signup">
+        <p class="eyebrow">Create account</p>
+        <h3 id="authTitle" style="font-size:var(--text-xl); margin-top:var(--space-2);">Join TravelScape</h3>
+        <p style="margin-top:var(--space-3); color:var(--color-text-muted);">Create an account to save favorite tours and send quicker trip requests.</p>
+        <form class="auth-form" id="signupForm" novalidate>
+          <div class="field-block">
+            <label for="signupName">Full name</label>
+            <input id="signupName" name="name" type="text" placeholder="Enter your full name">
+            <small class="error-text"></small>
+          </div>
+          <div class="field-block">
+            <label for="signupEmail">Email address</label>
+            <input id="signupEmail" name="email" type="email" placeholder="Enter your email">
+            <small class="error-text"></small>
+          </div>
+          <div class="field-block">
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" name="password" type="password" placeholder="Minimum 8 characters">
+            <small class="error-text"></small>
+          </div>
+          <div class="field-block">
+            <label for="signupConfirm">Confirm password</label>
+            <input id="signupConfirm" name="confirmPassword" type="password" placeholder="Re-enter password">
+            <small class="error-text"></small>
+          </div>
+          <button class="btn btn-primary auth-submit" type="submit">Create account</button>
+          <p class="auth-success" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Sign In Panel -->
+      <div class="auth-panel" data-auth-panel="signin">
+        <p class="eyebrow">Welcome back</p>
+        <h3 style="font-size:var(--text-xl); margin-top:var(--space-2);">Sign in to continue</h3>
+        <p style="margin-top:var(--space-3); color:var(--color-text-muted);">Use your registered email and password to access saved travel plans.</p>
+        <form class="auth-form" id="signinForm" novalidate>
+          <div class="field-block">
+            <label for="signinEmail">Email address</label>
+            <input id="signinEmail" name="email" type="email" placeholder="Registered email">
+            <small class="error-text"></small>
+          </div>
+          <div class="field-block">
+            <label for="signinPassword">Password</label>
+            <input id="signinPassword" name="password" type="password" placeholder="Enter password">
+            <small class="error-text"></small>
+          </div>
+          <button class="btn btn-primary auth-submit" type="submit">Sign in</button>
+          <p class="auth-success" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Login Panel -->
+      <div class="auth-panel" data-auth-panel="login">
+        <p class="eyebrow">Quick access</p>
+        <h3 style="font-size:var(--text-xl); margin-top:var(--space-2);">Login with validation</h3>
+        <p style="margin-top:var(--space-3); color:var(--color-text-muted);">This login form checks required fields, invalid email format, and wrong credentials on the client side.</p>
+        <form class="auth-form" id="loginForm" novalidate>
+          <div class="field-block">
+            <label for="loginUser">Email address</label>
+            <input id="loginUser" name="email" type="email" placeholder="Enter account email">
+            <small class="error-text"></small>
+          </div>
+          <div class="field-block">
+            <label for="loginPass">Password</label>
+            <input id="loginPass" name="password" type="password" placeholder="Enter account password">
+            <small class="error-text"></small>
+          </div>
+          <button class="btn btn-primary auth-submit" type="submit">Login now</button>
+          <p class="auth-success" aria-live="polite"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
